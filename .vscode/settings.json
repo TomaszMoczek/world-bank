@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/tomasz/Projects/exatel",
+            "binaryPath": "/home/tomasz/Projects/exatel/exatel",
+            "binaryArgs": []
+        }
+    ]
+}
