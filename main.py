@@ -15,23 +15,22 @@ def main() -> None:
         item: dict = json.loads(line.rstrip("\n"))
         items.append(item)
     data_frame = pandas.DataFrame(items)
-    print("Projects per Region:")
-    print()
     print(
-        data_frame[["regionname", "lendprojectcost"]]
-        .groupby("regionname", as_index=False)
-        .count()
+        data_frame.loc[(data_frame["status"] == 'Active') | (data_frame["status"] == 'Closed'), ["regionname"]]
+        .groupby(["regionname"], as_index=False)
+        .size()
+        .sort_values(["size"], ascending=False)
         .head(10)
+        .to_string()
     )
     print()
-    print()
-    print("Investments per Region:")
-    print()
     print(
-        data_frame[["regionname", "lendprojectcost"]]
-        .groupby("regionname", as_index=False)
+        data_frame.loc[(data_frame["status"] == 'Active') | (data_frame["status"] == 'Closed'), ["regionname", "lendprojectcost"]]
+        .groupby(["regionname"], as_index=False)
         .sum()
+        .sort_values(["lendprojectcost"], ascending=False)
         .head(10)
+        .to_string()
     )
 
 
