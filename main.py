@@ -14,7 +14,7 @@ def main() -> None:
     for line in lines:
         item: dict = json.loads(line.rstrip("\n"))
         items.append(item)
-    data_frame = pandas.DataFrame(items)
+    data_frame: pandas.DataFrame = pandas.DataFrame(items)
     print(
         data_frame.loc[(data_frame["status"] == 'Active') | (data_frame["status"] == 'Closed'), ["regionname"]]
         .groupby(["regionname"], as_index=False)
