@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 import os
 import json
 import pandas
@@ -16,7 +16,10 @@ def main() -> None:
         items.append(item)
     data_frame: pandas.DataFrame = pandas.DataFrame(items)
     print(
-        data_frame.loc[(data_frame["status"] == 'Active') | (data_frame["status"] == 'Closed'), ["regionname"]]
+        data_frame.loc[
+            (data_frame["status"] == "Active") | (data_frame["status"] == "Closed"),
+            ["regionname"],
+        ]
         .groupby(["regionname"], as_index=False)
         .size()
         .sort_values(["size"], ascending=False)
@@ -25,7 +28,10 @@ def main() -> None:
     )
     print()
     print(
-        data_frame.loc[(data_frame["status"] == 'Active') | (data_frame["status"] == 'Closed'), ["regionname", "lendprojectcost"]]
+        data_frame.loc[
+            (data_frame["status"] == "Active") | (data_frame["status"] == "Closed"),
+            ["regionname", "lendprojectcost"],
+        ]
         .groupby(["regionname"], as_index=False)
         .sum()
         .sort_values(["lendprojectcost"], ascending=False)
