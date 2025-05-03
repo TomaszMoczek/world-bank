@@ -15,6 +15,7 @@ def main() -> None:
         item: dict = json.loads(line.rstrip("\n"))
         items.append(item)
     data_frame: pandas.DataFrame = pandas.DataFrame(items)
+    print("Projects per Region:")
     print(
         data_frame.loc[
             (data_frame["status"] == "Active") | (data_frame["status"] == "Closed"),
@@ -27,6 +28,7 @@ def main() -> None:
         .to_string()
     )
     print()
+    print("Investments per Region:")
     print(
         data_frame.loc[
             (data_frame["status"] == "Active") | (data_frame["status"] == "Closed"),

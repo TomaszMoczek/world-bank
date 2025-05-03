@@ -1,9 +1,9 @@
 {
-    "makefile.launchConfigurations": [
-        {
-            "cwd": "/home/tomasz/Projects/exatel",
-            "binaryPath": "/home/tomasz/Projects/exatel/exatel",
-            "binaryArgs": []
-        }
-    ]
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/home/tomasz/Projects/world-bank",
+      "binaryPath": "/home/tomasz/Projects/world-bank/world_bank",
+      "binaryArgs": []
+    }
+  ]
 }
